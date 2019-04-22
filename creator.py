@@ -63,9 +63,7 @@ def mainMenu():
     mainSection()
 
 
-def launchCreator():
-    os.system('clear')
-
+def nameCollector():
     ##### Collect Players Name #####
     qPlayerName = "Hello, what's your name?\n"
     for character in qPlayerName:
@@ -75,8 +73,10 @@ def launchCreator():
     playerName = input("> ")
     myCharacter.playerName = playerName
 
-    ##### Collect Players Class Choice #####
-    qClass = f"Hello {playerName}, what class do you want to be?\n"
+
+def classCollector():
+        ##### Collect Players Class Choice #####
+    qClass = f"Hello {myCharacter.playerName}, what class do you want to be?\n"
     qClassDef = "(You can be a Barbarian, Bard, Cleric, Druid, Figther, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, or Wizard)\n"
 
    # Write out question nicely
@@ -94,13 +94,13 @@ def launchCreator():
     validClasses = ['barbarian', 'bard', 'cleric', 'druid', 'fighter',
                     'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
     if playerClass.lower() in validClasses:
-        myCharacter.charClass = playerClass
+        myCharacter.charClass = playerClass.lower()
         print(f"You are now a {playerClass}!\n")
     while playerClass.lower() not in validClasses:
         print("Please enter a valid class")
         playerClass = input("> ")
         if playerClass.lower() in validClasses:
-            myCharacter.charClass = playerClass
+            myCharacter.charClass = playerClass.lower()
             print(f"You are now a {playerClass}!\n")
 
     ### Class Base Stats ###
@@ -201,8 +201,10 @@ def launchCreator():
         myCharacter.wis = 14
         myCharacter.cha = 12
 
+
+def raceCollector():
     ##### Collect Players Race Choice #####
-    qRace = f"Hello {playerName} the {playerClass}, what race do you want to be?\n"
+    qRace = f"Hello {myCharacter.playerName} you want to be {myCharacter.charClass}, what race do you want to be?\n"
     qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
 
     # Write out question nicely
@@ -220,13 +222,13 @@ def launchCreator():
     validRaces = ['aarakocra', 'dragonborn', 'dwarf', 'elf', 'gnome',
                   'goliath', 'halfling', 'human', 'tiefling']
     if playerRace.lower() in validRaces:
-        myCharacter.charRace = playerRace
+        myCharacter.charRace = playerRace.lower()
         print(f"You are now a {playerRace}!\n")
     while playerRace.lower() not in validRaces:
         print("Please enter a valid race")
         playerRace = input("> ")
         if playerRace.lower() in validRaces:
-            myCharacter.charRace = playerRace
+            myCharacter.charRace = playerRace.lower()
             print(f"You are now a {playerRace}!\n")
 
     ### Race Base Stats ###
@@ -258,8 +260,9 @@ def launchCreator():
         myCharacter.int += 1
         myCharacter.cha += 2
 
+def charNameCollector():
     ##### Collect Character Name #####
-    qGreet = f"So, {playerName} the {playerRace} {playerClass}...\n There is one more thing.\n What do you want your characters name to be? \n"
+    qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
     for character in qGreet:
         sys.stdout.write(character)
         sys.stdout.flush()
@@ -267,10 +270,20 @@ def launchCreator():
     charName = input("> ")
     myCharacter.charName = charName
 
+
+def launchCreator():
+    os.system('clear')
+    nameCollector()
+    classCollector()
+    raceCollector()
+    charNameCollector()
+
+    
+
     ##### Print Out Character Info #####
 
-    qPrint1 = f"You're ready to go, {playerName}!\n"
-    qPrint2 = f"Here is your character, {charName}'s the {playerRace} {playerClass}'s stats\n"
+    qPrint1 = f"You're ready to go, {myCharacter.playerName}!\n"
+    qPrint2 = f"Here is your character, {myCharacter.charName}'s the {myCharacter.charRace} {myCharacter.charClass}'s stats\n"
     for character in qPrint1:
         sys.stdout.write(character)
         sys.stdout.flush()
