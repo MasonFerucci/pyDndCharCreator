@@ -30,8 +30,8 @@ class playerChar:
         self.pro = 0
         self.walk = 0
 
-    def addPoint(self, amount):
-        self.str += amount
+    # def addPoint(self, amount):
+    #     self.str += amount
 
 
 myCharacter = playerChar()
@@ -104,125 +104,101 @@ def launchCreator():
 
     ### Class Base Stats ###
     if myCharacter.charClass == 'barbarian':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 12
+        myCharacter.str = 15
+        myCharacter.dex = 13
+        myCharacter.con = 14
+        myCharacter.int = 8
+        myCharacter.wis = 10
+        myCharacter.cha = 12
     elif myCharacter.charClass == 'bard':
-        myCharacter.hp = 0
-        myCharacter.str = 50
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 22
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 8
+        myCharacter.dex = 10
+        myCharacter.con = 15
+        myCharacter.int = 14
+        myCharacter.wis = 12
+        myCharacter.cha = 13
     elif myCharacter.charClass == 'cleric':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 10
+        myCharacter.dex = 8
+        myCharacter.con = 13
+        myCharacter.int = 12
+        myCharacter.wis = 15
+        myCharacter.cha = 14
     elif myCharacter.charClass == 'druid':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 8
+        myCharacter.dex = 14
+        myCharacter.con = 12
+        myCharacter.int = 10
+        myCharacter.wis = 15
+        myCharacter.cha = 13
     elif myCharacter.charClass == 'fighter':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 10
+        myCharacter.str = 15
+        myCharacter.dex = 12
+        myCharacter.con = 14
+        myCharacter.int = 8
+        myCharacter.wis = 10
+        myCharacter.cha = 13
     elif myCharacter.charClass == 'monk':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 13
+        myCharacter.dex = 15
+        myCharacter.con = 12
+        myCharacter.int = 8
+        myCharacter.wis = 14
+        myCharacter.cha = 10
     elif myCharacter.charClass == 'paladin':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 10
+        myCharacter.str = 14
+        myCharacter.dex = 8
+        myCharacter.con = 13
+        myCharacter.int = 10
+        myCharacter.wis = 12
+        myCharacter.cha = 15
     elif myCharacter.charClass == 'ranger':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 10
+        myCharacter.str = 15
+        myCharacter.dex = 14
+        myCharacter.con = 12
+        myCharacter.int = 8
+        myCharacter.wis = 10
+        myCharacter.cha = 13
     elif myCharacter.charClass == 'rogue':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 13
+        myCharacter.dex = 15
+        myCharacter.con = 12
+        myCharacter.int = 10
+        myCharacter.wis = 8
+        myCharacter.cha = 14
     elif myCharacter.charClass == 'sorcerer':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 6
+        myCharacter.str = 8
+        myCharacter.dex = 10
+        myCharacter.con = 15
+        myCharacter.int = 14
+        myCharacter.wis = 12
+        myCharacter.cha = 13
     elif myCharacter.charClass == 'warlock':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 8
+        myCharacter.str = 8
+        myCharacter.dex = 10
+        myCharacter.con = 14
+        myCharacter.int = 15
+        myCharacter.wis = 13
+        myCharacter.cha = 12
     elif myCharacter.charClass == 'wizard':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
+        myCharacter.hp = 6
+        myCharacter.str = 8
+        myCharacter.dex = 10
+        myCharacter.con = 13
+        myCharacter.int = 15
+        myCharacter.wis = 14
+        myCharacter.cha = 12
 
     ##### Collect Players Race Choice #####
     qRace = f"Hello {playerName} the {playerClass}, what race do you want to be?\n"
@@ -271,11 +247,11 @@ def launchCreator():
         myCharacter.dex = +2
     elif myCharacter.charRace == 'human':
         myCharacter.str = myCharacter.str + 1
-        myCharacter.dex = +1
+        myCharacter.dex += 1
         myCharacter.con += 1
-        myCharacter.int = +1
-        myCharacter.wis = +1
-        myCharacter.cha = +1
+        myCharacter.int += 1
+        myCharacter.wis += 1
+        myCharacter.cha += 1
     elif myCharacter.charRace == 'tiefling':
         myCharacter.int = +1
         myCharacter.cha = +2
@@ -306,7 +282,7 @@ def launchCreator():
     print(f"Character Name: {myCharacter.charName}")
     print(f"Class: {myCharacter.charClass}")
     print(f"Race: {myCharacter.charRace}")
-    print(f"Hit Points: {myCharacter.hp}")
+    print(f"Hit Points: {myCharacter.hp} plus Constitution Modifier")
     print(f"Strength: {myCharacter.str}")
     print(f"Dexterity: {myCharacter.dex}")
     print(f"Constitution: {myCharacter.con}")
