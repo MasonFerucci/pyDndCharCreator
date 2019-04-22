@@ -97,6 +97,7 @@ def launchCreator():
         myCharacter.charClass = playerClass
         print(f"You are now a {playerClass}!\n")
     while playerClass.lower() not in validClasses:
+        print("Please enter a valid class")
         playerClass = input("> ")
         if playerClass.lower() in validClasses:
             myCharacter.charClass = playerClass
@@ -222,6 +223,7 @@ def launchCreator():
         myCharacter.charRace = playerRace
         print(f"You are now a {playerRace}!\n")
     while playerRace.lower() not in validRaces:
+        print("Please enter a valid race")
         playerRace = input("> ")
         if playerRace.lower() in validRaces:
             myCharacter.charRace = playerRace
@@ -229,32 +231,32 @@ def launchCreator():
 
     ### Race Base Stats ###
     if myCharacter.charRace == 'aarakocra':
-        myCharacter.dex = +2
-        myCharacter.wis = +1
+        myCharacter.dex += 2
+        myCharacter.wis += 1
     elif myCharacter.charRace == 'dragonborn':
-        myCharacter.str = +2
-        myCharacter.cha = +1
+        myCharacter.str += 2
+        myCharacter.cha += 1
     elif myCharacter.charRace == 'dwarf':
-        myCharacter.con = +2
+        myCharacter.con += 2
     elif myCharacter.charRace == 'elf':
-        myCharacter.dex = +2
+        myCharacter.dex += 2
     elif myCharacter.charRace == 'gnome':
-        myCharacter.int = +2
+        myCharacter.int += 2
     elif myCharacter.charRace == 'goliath':
-        myCharacter.str = +2
-        myCharacter.con = +1
+        myCharacter.str += 2
+        myCharacter.con += 1
     elif myCharacter.charRace == 'halfling':
-        myCharacter.dex = +2
+        myCharacter.dex += 2
     elif myCharacter.charRace == 'human':
-        myCharacter.str = myCharacter.str + 1
+        myCharacter.str += 1
         myCharacter.dex += 1
         myCharacter.con += 1
         myCharacter.int += 1
         myCharacter.wis += 1
         myCharacter.cha += 1
     elif myCharacter.charRace == 'tiefling':
-        myCharacter.int = +1
-        myCharacter.cha = +2
+        myCharacter.int += 1
+        myCharacter.cha += 2
 
     ##### Collect Character Name #####
     qGreet = f"So, {playerName} the {playerRace} {playerClass}...\n There is one more thing.\n What do you want your characters name to be? \n"
