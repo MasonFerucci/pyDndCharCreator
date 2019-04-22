@@ -270,6 +270,9 @@ def charNameCollector():
     charName = input("> ")
     myCharacter.charName = charName
 
+def hpCalc():
+    myCharacter.hp =  myCharacter.hp + (myCharacter.hp + myCharacter.con - 10) / 2
+
 
 def launchCreator():
     os.system('clear')
@@ -277,6 +280,7 @@ def launchCreator():
     classCollector()
     raceCollector()
     charNameCollector()
+    hpCalc()
 
     
 
@@ -297,7 +301,7 @@ def launchCreator():
     print(f"Character Name: {myCharacter.charName}")
     print(f"Class: {myCharacter.charClass}")
     print(f"Race: {myCharacter.charRace}")
-    print(f"Hit Points: {myCharacter.hp} plus Constitution Modifier")
+    print(f"Hit Points: {int(myCharacter.hp)} plus Constitution Modifier")
     print(f"Strength: {myCharacter.str}")
     print(f"Dexterity: {myCharacter.dex}")
     print(f"Constitution: {myCharacter.con}")
