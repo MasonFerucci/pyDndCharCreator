@@ -1,6 +1,6 @@
 # DnD 5th Edition Character Creator
 # Mason Ferucci
-# Programming Logic and design
+# Programming Logic and Design
 # Final Project
 # 4/19/2019
 
@@ -288,15 +288,7 @@ def modClac():
     myCharacter.chaMod = (myCharacter.cha - 10) / 2
 
 
-def launchCreator():
-    os.system('clear')
-    nameCollector()
-    classCollector()
-    raceCollector()
-    charNameCollector()
-    modClac()
-    hpCalc()
-
+def printChar():
     ##### Print Out Character Info #####
 
     qPrint1 = f"You're ready to go, {myCharacter.playerName}!\n"
@@ -328,6 +320,17 @@ def launchCreator():
     print(
         f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
     print("#############################")
+
+
+def launchCreator():
+    os.system('clear')
+    nameCollector()
+    classCollector()
+    raceCollector()
+    charNameCollector()
+    modClac()
+    hpCalc()
+    printChar()
 
 
 mainMenu()
