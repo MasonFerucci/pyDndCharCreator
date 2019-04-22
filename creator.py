@@ -11,9 +11,8 @@ import os
 import time
 import random
 
+
 ##### Player Character Setup #####
-
-
 class playerChar:
     def __init__(self):
         self.playerName = ''
@@ -38,6 +37,7 @@ class playerChar:
 myCharacter = playerChar()
 
 
+##### Main Menu Seclection Options #####
 def mainSelection():
     option = input("> ")
     if option.lower() == ("create"):
@@ -52,6 +52,8 @@ def mainSelection():
         elif option.lower() == ("quit"):
             sys.exit()
 
+##### Main Menu #####
+
 
 def mainMenu():
     os.system('clear')
@@ -64,9 +66,10 @@ def mainMenu():
 
     mainSelection()
 
+##### Collect Players Name #####
+
 
 def nameCollector():
-    ##### Collect Players Name #####
     qPlayerName = "Hello, what's your name?\n"
     for character in qPlayerName:
         sys.stdout.write(character)
@@ -76,8 +79,8 @@ def nameCollector():
     myCharacter.playerName = playerName
 
 
+##### Collect Players Class Choice #####
 def classCollector():
-        ##### Collect Players Class Choice #####
     qClass = f"Hello {myCharacter.playerName}, what class do you want to be?\n"
     qClassDef = "(You can be a Barbarian, Bard, Cleric, Druid, Figther, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, or Wizard)\n"
 
@@ -92,7 +95,7 @@ def classCollector():
         time.sleep(0.01)
     playerClass = input("> ")
 
-    # Valid Class choice options
+    ### Valid Class Choice Options ###
     validClasses = ['barbarian', 'bard', 'cleric', 'druid', 'fighter',
                     'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
     if playerClass.lower() in validClasses:
@@ -203,9 +206,10 @@ def classCollector():
         myCharacter.wis = 14
         myCharacter.cha = 12
 
+##### Collect Players Race Choice #####
+
 
 def raceCollector():
-    ##### Collect Players Race Choice #####
     qRace = f"Hello {myCharacter.playerName} you want to be {myCharacter.charClass}, what race do you want to be?\n"
     qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
 
@@ -220,7 +224,7 @@ def raceCollector():
         time.sleep(0.01)
     playerRace = input("> ")
 
-    # Valid Race choice options
+    ### Valid Race Choice Options ###
     validRaces = ['aarakocra', 'dragonborn', 'dwarf', 'elf', 'gnome',
                   'goliath', 'halfling', 'human', 'tiefling']
     if playerRace.lower() in validRaces:
@@ -262,9 +266,10 @@ def raceCollector():
         myCharacter.int += 1
         myCharacter.cha += 2
 
+##### Collect Character Name #####
+
 
 def charNameCollector():
-    ##### Collect Character Name #####
     qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
     for character in qGreet:
         sys.stdout.write(character)
@@ -273,10 +278,14 @@ def charNameCollector():
     charName = input("> ")
     myCharacter.charName = charName
 
+##### Calculate Hit Points(HP) #####
+
 
 def hpCalc():
     myCharacter.hp = myCharacter.hp + \
         (myCharacter.hp + myCharacter.con - 10) / 2
+
+##### Calculate Modifiers for each stat #####
 
 
 def modClac():
@@ -287,10 +296,10 @@ def modClac():
     myCharacter.wisMod = (myCharacter.wis - 10) / 2
     myCharacter.chaMod = (myCharacter.cha - 10) / 2
 
+##### Print Out Character Info #####
+
 
 def printChar():
-    ##### Print Out Character Info #####
-
     qPrint1 = f"You're ready to go, {myCharacter.playerName}!\n"
     qPrint2 = f"Here is your character, {myCharacter.charName}'s the {myCharacter.charRace} {myCharacter.charClass}'s stats\n"
     for character in qPrint1:
@@ -301,7 +310,7 @@ def printChar():
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(0.05)
-    print("#############################")
+    print("###########################################")
     print(f"Player Name: {myCharacter.playerName}")
     print(f"Character Name: {myCharacter.charName}")
     print(f"Class: {myCharacter.charClass}")
@@ -319,7 +328,9 @@ def printChar():
         f"Wisdom: {myCharacter.wis} with a modifier of {int(myCharacter.wisMod)}")
     print(
         f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
-    print("#############################")
+    print("###########################################")
+
+##### Run creator #####
 
 
 def launchCreator():
