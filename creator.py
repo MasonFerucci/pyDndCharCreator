@@ -237,7 +237,7 @@ def raceCollector():
             myCharacter.charRace = playerRace.lower()
             print(f"You are now a {playerRace}!\n")
 
-    ### Race Base Stats ###
+    ### Race Base Stats, adds stats to class stats ###
     if myCharacter.charRace == 'aarakocra':
         myCharacter.dex += 2
         myCharacter.wis += 1
@@ -271,6 +271,7 @@ def raceCollector():
 
 def charNameCollector():
     qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
+    # Write out question nicely
     for character in qGreet:
         sys.stdout.write(character)
         sys.stdout.flush()
@@ -278,17 +279,11 @@ def charNameCollector():
     charName = input("> ")
     myCharacter.charName = charName
 
-##### Calculate Hit Points(HP) #####
-
-
-def hpCalc():
-    myCharacter.hp = myCharacter.hp + \
-        (myCharacter.hp + myCharacter.con - 10) / 2
 
 ##### Calculate Modifiers for each stat #####
 
-
 def modClac():
+    ### Takes the stat and subtracts 10, then divides by 2 to get the modifier ###
     myCharacter.strMod = (myCharacter.str - 10) / 2
     myCharacter.dexMod = (myCharacter.dex - 10) / 2
     myCharacter.conMod = (myCharacter.con - 10) / 2
@@ -296,9 +291,16 @@ def modClac():
     myCharacter.wisMod = (myCharacter.wis - 10) / 2
     myCharacter.chaMod = (myCharacter.cha - 10) / 2
 
+
+
+##### Calculate Hit Points(HP) #####
+
+
+def hpCalc():
+    ### Takes the base HP and adds it to the consitution modifier ###
+    myCharacter.hp = myCharacter.hp + myCharacter.conMod
+
 ##### Print Out Character Info #####
-
-
 def printChar():
     qPrint1 = f"You're ready to go, {myCharacter.playerName}!\n"
     qPrint2 = f"Here is your character, {myCharacter.charName}'s the {myCharacter.charRace} {myCharacter.charClass}'s stats\n"
