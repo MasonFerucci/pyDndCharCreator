@@ -22,22 +22,23 @@ class playerChar:
         self.charRace = ''
         self.hp = 0
         self.str = 0
+        self.strMod = 0
         self.dex = 0
+        self.dexMod = 0
         self.con = 0
+        self.conMod = 0
         self.int = 0
+        self.intMod = 0
         self.wis = 0
+        self.wisMod = 0
         self.cha = 0
-        self.pro = 0
-        self.walk = 0
-
-    # def addPoint(self, amount):
-    #     self.str += amount
+        self.chaMod = 0
 
 
 myCharacter = playerChar()
 
 
-def mainSection():
+def mainSelection():
     option = input("> ")
     if option.lower() == ("create"):
         launchCreator()
@@ -54,13 +55,14 @@ def mainSection():
 
 def mainMenu():
     os.system('clear')
-    print('###########################################')
-    print('# Welcome to the DnD 5E Charactor Creator #')
-    print('###########################################')
+    print('*******************************************')
+    print('* Welcome to the DnD 5E Charactor Creator *')
+    print('*******************************************')
     print('                 • Create •                ')
     print('                 •  Quit  •                ')
+    print('*******************************************')
 
-    mainSection()
+    mainSelection()
 
 
 def nameCollector():
@@ -277,12 +279,22 @@ def hpCalc():
         (myCharacter.hp + myCharacter.con - 10) / 2
 
 
+def modClac():
+    myCharacter.strMod = (myCharacter.str - 10) / 2
+    myCharacter.dexMod = (myCharacter.dex - 10) / 2
+    myCharacter.conMod = (myCharacter.con - 10) / 2
+    myCharacter.intMod = (myCharacter.int - 10) / 2
+    myCharacter.wisMod = (myCharacter.wis - 10) / 2
+    myCharacter.chaMod = (myCharacter.cha - 10) / 2
+
+
 def launchCreator():
     os.system('clear')
     nameCollector()
     classCollector()
     raceCollector()
     charNameCollector()
+    modClac()
     hpCalc()
 
     ##### Print Out Character Info #####
@@ -303,12 +315,18 @@ def launchCreator():
     print(f"Class: {myCharacter.charClass}")
     print(f"Race: {myCharacter.charRace}")
     print(f"Hit Points: {int(myCharacter.hp)}")
-    print(f"Strength: {myCharacter.str}")
-    print(f"Dexterity: {myCharacter.dex}")
-    print(f"Constitution: {myCharacter.con}")
-    print(f"Intelligence: {myCharacter.int}")
-    print(f"Wisdom: {myCharacter.wis}")
-    print(f"Charisma: {myCharacter.cha}")
+    print(
+        f"Strength: {myCharacter.str} with a modifier of {int(myCharacter.strMod)}")
+    print(
+        f"Dexterity: {myCharacter.dex} with a modifier of {int(myCharacter.dexMod)}")
+    print(
+        f"Constitution: {myCharacter.con} with a modifier of {int(myCharacter.conMod)}")
+    print(
+        f"Intelligence: {myCharacter.int} with a modifier of {int(myCharacter.intMod)}")
+    print(
+        f"Wisdom: {myCharacter.wis} with a modifier of {int(myCharacter.wisMod)}")
+    print(
+        f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
     print("#############################")
 
 
