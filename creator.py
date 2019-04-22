@@ -260,6 +260,7 @@ def raceCollector():
         myCharacter.int += 1
         myCharacter.cha += 2
 
+
 def charNameCollector():
     ##### Collect Character Name #####
     qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
@@ -270,8 +271,10 @@ def charNameCollector():
     charName = input("> ")
     myCharacter.charName = charName
 
+
 def hpCalc():
-    myCharacter.hp =  myCharacter.hp + (myCharacter.hp + myCharacter.con - 10) / 2
+    myCharacter.hp = myCharacter.hp + \
+        (myCharacter.hp + myCharacter.con - 10) / 2
 
 
 def launchCreator():
@@ -281,8 +284,6 @@ def launchCreator():
     raceCollector()
     charNameCollector()
     hpCalc()
-
-    
 
     ##### Print Out Character Info #####
 
@@ -301,7 +302,7 @@ def launchCreator():
     print(f"Character Name: {myCharacter.charName}")
     print(f"Class: {myCharacter.charClass}")
     print(f"Race: {myCharacter.charRace}")
-    print(f"Hit Points: {int(myCharacter.hp)} plus Constitution Modifier")
+    print(f"Hit Points: {int(myCharacter.hp)}")
     print(f"Strength: {myCharacter.str}")
     print(f"Dexterity: {myCharacter.dex}")
     print(f"Constitution: {myCharacter.con}")
