@@ -30,6 +30,9 @@ class playerChar:
         self.pro = 0
         self.walk = 0
 
+    def addPoint(self, amount):
+        self.str += amount
+
 
 myCharacter = playerChar()
 
@@ -100,7 +103,7 @@ def launchCreator():
             print(f"You are now a {playerClass}!\n")
 
     ### Class Base Stats ###
-    if myCharacter.charClass is 'barbarian':
+    if myCharacter.charClass == 'barbarian':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -110,7 +113,17 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'bard':
+    elif myCharacter.charClass == 'bard':
+        myCharacter.hp = 0
+        myCharacter.str = 50
+        myCharacter.dex = 0
+        myCharacter.con = 0
+        myCharacter.int = 22
+        myCharacter.wis = 0
+        myCharacter.cha = 0
+        myCharacter.pro = 0
+        myCharacter.walk = 0
+    elif myCharacter.charClass == 'cleric':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -120,7 +133,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'cleric':
+    elif myCharacter.charClass == 'druid':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -130,7 +143,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'druid':
+    elif myCharacter.charClass == 'fighter':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -140,7 +153,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'fighter':
+    elif myCharacter.charClass == 'monk':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -150,7 +163,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'monk':
+    elif myCharacter.charClass == 'paladin':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -160,7 +173,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'paladin':
+    elif myCharacter.charClass == 'ranger':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -170,7 +183,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'ranger':
+    elif myCharacter.charClass == 'rogue':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -180,7 +193,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'rogue':
+    elif myCharacter.charClass == 'sorcerer':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -190,7 +203,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'sorcerer':
+    elif myCharacter.charClass == 'warlock':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -200,17 +213,7 @@ def launchCreator():
         myCharacter.cha = 0
         myCharacter.pro = 0
         myCharacter.walk = 0
-    elif myCharacter.charClass is 'warlock':
-        myCharacter.hp = 0
-        myCharacter.str = 0
-        myCharacter.dex = 0
-        myCharacter.con = 0
-        myCharacter.int = 0
-        myCharacter.wis = 0
-        myCharacter.cha = 0
-        myCharacter.pro = 0
-        myCharacter.walk = 0
-    elif myCharacter.charClass is 'wizard':
+    elif myCharacter.charClass == 'wizard':
         myCharacter.hp = 0
         myCharacter.str = 0
         myCharacter.dex = 0
@@ -249,31 +252,31 @@ def launchCreator():
             print(f"You are now a {playerRace}!\n")
 
     ### Race Base Stats ###
-    if myCharacter.charRace is 'aarakocra':
+    if myCharacter.charRace == 'aarakocra':
         myCharacter.dex = +2
         myCharacter.wis = +1
-    elif myCharacter.charRace is 'dragonborn':
+    elif myCharacter.charRace == 'dragonborn':
         myCharacter.str = +2
         myCharacter.cha = +1
-    elif myCharacter.charRace is 'dwarf':
+    elif myCharacter.charRace == 'dwarf':
         myCharacter.con = +2
-    elif myCharacter.charRace is 'elf':
+    elif myCharacter.charRace == 'elf':
         myCharacter.dex = +2
-    elif myCharacter.charRace is 'gnome':
+    elif myCharacter.charRace == 'gnome':
         myCharacter.int = +2
-    elif myCharacter.charRace is 'goliath':
+    elif myCharacter.charRace == 'goliath':
         myCharacter.str = +2
         myCharacter.con = +1
-    elif myCharacter.charRace is 'halfling':
+    elif myCharacter.charRace == 'halfling':
         myCharacter.dex = +2
-    elif myCharacter.charRace is 'human':
+    elif myCharacter.charRace == 'human':
         myCharacter.str = myCharacter.str + 1
         myCharacter.dex = +1
-        myCharacter.con = +1
+        myCharacter.con += 1
         myCharacter.int = +1
         myCharacter.wis = +1
         myCharacter.cha = +1
-    elif myCharacter.charRace is 'tiefling':
+    elif myCharacter.charRace == 'tiefling':
         myCharacter.int = +1
         myCharacter.cha = +2
 
