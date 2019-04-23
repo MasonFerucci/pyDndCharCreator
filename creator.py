@@ -52,9 +52,8 @@ def mainSelection():
         elif option.lower() == ("quit"):
             sys.exit()
 
+
 ##### Main Menu #####
-
-
 def mainMenu():
     os.system('clear')
     print('*******************************************')
@@ -66,9 +65,8 @@ def mainMenu():
 
     mainSelection()
 
+
 ##### Collect Players Name #####
-
-
 def nameCollector():
     qPlayerName = "Hello, what's your name?\n"
     for character in qPlayerName:
@@ -206,9 +204,8 @@ def classCollector():
         myCharacter.wis = 14
         myCharacter.cha = 12
 
+
 ##### Collect Players Race Choice #####
-
-
 def raceCollector():
     qRace = f"Hello {myCharacter.playerName} you want to be {myCharacter.charClass}, what race do you want to be?\n"
     qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
@@ -266,9 +263,8 @@ def raceCollector():
         myCharacter.int += 1
         myCharacter.cha += 2
 
+
 ##### Collect Character Name #####
-
-
 def charNameCollector():
     qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
     # Write out question nicely
@@ -281,7 +277,6 @@ def charNameCollector():
 
 
 ##### Calculate Modifiers for each stat #####
-
 def modClac():
     ### Takes the stat and subtracts 10, then divides by 2 to get the modifier ###
     myCharacter.strMod = (myCharacter.str - 10) / 2
@@ -292,13 +287,11 @@ def modClac():
     myCharacter.chaMod = (myCharacter.cha - 10) / 2
 
 
-
 ##### Calculate Hit Points(HP) #####
-
-
 def hpCalc():
     ### Takes the base HP and adds it to the consitution modifier ###
     myCharacter.hp = myCharacter.hp + myCharacter.conMod
+
 
 ##### Print Out Character Info #####
 def printChar():
@@ -332,9 +325,8 @@ def printChar():
         f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
     print("###########################################")
 
+
 ##### Run creator #####
-
-
 def launchCreator():
     os.system('clear')
     nameCollector()
