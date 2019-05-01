@@ -32,6 +32,7 @@ class playerChar:
         self.wisMod = 0
         self.cha = 0
         self.chaMod = 0
+        self.ac = 10
 
 
 myCharacter = playerChar()
@@ -74,12 +75,23 @@ def nameCollector():
         sys.stdout.flush()
         time.sleep(0.05)
     playerName = input("> ")
-    myCharacter.playerName = playerName
+    myCharacter.playerName = playerName.capitalize()
+
+##### Collect Character Name #####
+def charNameCollector():
+    qGreet = f"Alright {myCharacter.playerName}, what do you want your characters name to be? \n"
+    # Write out question nicely
+    for character in qGreet:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    charName = input("> ")
+    myCharacter.charName = charName.capitalize()
 
 
 ##### Collect Players Class Choice #####
 def classCollector():
-    qClass = f"Hello {myCharacter.playerName}, what class do you want to be?\n"
+    qClass = f"Okay {myCharacter.playerName}, what class do you want your character {myCharacter.charName} to be?\n"
     qClassDef = "(You can be a Barbarian, Bard, Cleric, Druid, Figther, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, or Wizard)\n"
 
    # Write out question nicely
@@ -98,13 +110,13 @@ def classCollector():
                     'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
     if playerClass.lower() in validClasses:
         myCharacter.charClass = playerClass.lower()
-        print(f"You are now a {playerClass}!\n")
+        print(f"{myCharacter.charName} is now a {playerClass}!\n")
     while playerClass.lower() not in validClasses:
         print("Please enter a valid class")
         playerClass = input("> ")
         if playerClass.lower() in validClasses:
             myCharacter.charClass = playerClass.lower()
-            print(f"You are now a {playerClass}!\n")
+            print(f"{myCharacter.charName} is now a {playerClass}!\n")
 
     ### Class Base Stats ###
     if myCharacter.charClass == 'barbarian':
@@ -207,7 +219,7 @@ def classCollector():
 
 ##### Collect Players Race Choice #####
 def raceCollector():
-    qRace = f"Hello {myCharacter.playerName} you want to be {myCharacter.charClass}, what race do you want to be?\n"
+    qRace = f"Alright, {myCharacter.playerName} your character {myCharacter.charName} is a {myCharacter.charClass}..\n What race do you want them be?\n"
     qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
 
     # Write out question nicely
@@ -226,13 +238,13 @@ def raceCollector():
                   'goliath', 'halfling', 'human', 'tiefling']
     if playerRace.lower() in validRaces:
         myCharacter.charRace = playerRace.lower()
-        print(f"You are now a {playerRace}!\n")
+        print(f"{myCharacter.charName} is now a {playerRace}!\n")
     while playerRace.lower() not in validRaces:
         print("Please enter a valid race")
         playerRace = input("> ")
         if playerRace.lower() in validRaces:
             myCharacter.charRace = playerRace.lower()
-            print(f"You are now a {playerRace}!\n")
+            print(f"{myCharacter.charName} is now a {playerRace}!\n")
 
     ### Race Base Stats, adds stats to class stats ###
     if myCharacter.charRace == 'aarakocra':
@@ -264,18 +276,6 @@ def raceCollector():
         myCharacter.cha += 2
 
 
-##### Collect Character Name #####
-def charNameCollector():
-    qGreet = f"So, {myCharacter.playerName} you are a {myCharacter.charRace} {myCharacter.charClass}...\n What do you want your characters name to be? \n"
-    # Write out question nicely
-    for character in qGreet:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    charName = input("> ")
-    myCharacter.charName = charName
-
-
 ##### Calculate Modifiers for each stat #####
 def modClac():
     ### Takes the stat and subtracts 10, then divides by 2 to get the modifier ###
@@ -292,11 +292,16 @@ def hpCalc():
     ### Takes the base HP and adds it to the consitution modifier ###
     myCharacter.hp = myCharacter.hp + myCharacter.conMod
 
+##### Calculate Armor Class(AC) #####
+def acCalc():
+    ### Takes the base AC and adds it to the dexterity modifier ###
+    myCharacter.ac = myCharacter.ac + myCharacter.dexMod
+
 
 ##### Print Out Character Info #####
 def printChar():
     qPrint1 = f"You're ready to go, {myCharacter.playerName}!\n"
-    qPrint2 = f"Here is your character, {myCharacter.charName}'s the {myCharacter.charRace} {myCharacter.charClass}'s stats\n"
+    qPrint2 = f"Here is your character, {myCharacter.charName} the {myCharacter.charRace} {myCharacter.charClass}'s stats\n"
     for character in qPrint1:
         sys.stdout.write(character)
         sys.stdout.flush()
@@ -306,11 +311,13 @@ def printChar():
         sys.stdout.flush()
         time.sleep(0.05)
     print("###########################################")
-    print(f"Player Name: {myCharacter.playerName}")
-    print(f"Character Name: {myCharacter.charName}")
-    print(f"Class: {myCharacter.charClass}")
-    print(f"Race: {myCharacter.charRace}")
+    print(f"Player Name: {myCharacter.playerName.capitalize()}")
+    print(f"Character Name: {myCharacter.charName.capitalize()}")
+    print(f"Class: {myCharacter.charClass.capitalize()}")
+    print(f"Race: {myCharacter.charRace.capitalize()}")
     print(f"Hit Points: {int(myCharacter.hp)}")
+    print(
+        f"Armor Class: {myCharacter.ac}")
     print(
         f"Strength: {myCharacter.str} with a modifier of {int(myCharacter.strMod)}")
     print(
@@ -330,11 +337,12 @@ def printChar():
 def launchCreator():
     os.system('clear')
     nameCollector()
+    charNameCollector()
     classCollector()
     raceCollector()
-    charNameCollector()
     modClac()
     hpCalc()
+    acCalc()
     printChar()
 
 
