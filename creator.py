@@ -58,11 +58,11 @@ def mainSelection():
 def mainMenu():
     os.system('clear')
     print('********************************************')
-    print('* Welcome to the DnD 5E Character Creator **')
+    print('  Welcome to the DnD 5E Character Creator  ')
     print('********************************************')
-    print('            • Create Character •            ')
-    print('            • Random Character •            ')
-    print('            •       Quit       •            ')
+    print('                 • Create •                 ')
+    print('                 • Random •                 ')
+    print('                 •  Quit  •                 ')
     print('********************************************')
 
     mainSelection()
@@ -317,8 +317,7 @@ def printChar():
     print(f"Class: {myCharacter.charClass.capitalize()}")
     print(f"Race: {myCharacter.charRace.capitalize()}")
     print(f"Hit Points: {int(myCharacter.hp)}")
-    print(
-        f"Armor Class: {int(myCharacter.ac)}")
+    print(f"Armor Class: {int(myCharacter.ac)}")
     print(
         f"Strength: {myCharacter.str} with a modifier of {int(myCharacter.strMod)}")
     print(
