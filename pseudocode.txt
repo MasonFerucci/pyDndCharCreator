@@ -1,16 +1,24 @@
 Input: 
-    Ask user for player name
-    Ask user for character race
-    Ask user for character class
-    Ask for character name
+    If Creating a character:
+        Ask user for player name
+        Ask for character name
+        Ask user for character race
+        Ask user for character class
+    Esle If Random Character:
+        Ask user for player name
+        Ask for character name
+        Randomly choose character race
+        Randomly choose character class
 
 
 Process:
     Create a python class for player character:
+        Add player name to the python class
         Add character name to python class
-        Add stats and ablities from race to python class
         Add stats and ablities from class to python class
-        Calculate hit points, automatically (Depends on class)
+        Add stats and ablities from race to python class
+        Calculate hit points automatically (Depends on class)
+        Calculate armor class automatically
 
 Output:
     Display character sheet / python class to user
