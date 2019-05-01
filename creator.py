@@ -55,14 +55,15 @@ def mainSelection():
 
 
 ##### Main Menu #####
-def mainMenu():
+def mainMenu():``
     os.system('clear')
-    print('*******************************************')
-    print('* Welcome to the DnD 5E Charactor Creator *')
-    print('*******************************************')
-    print('                 • Create •                ')
-    print('                 •  Quit  •                ')
-    print('*******************************************')
+    print('********************************************')
+    print('* Welcome to the DnD 5E Character Creator **')
+    print('********************************************')
+    print('            • Create Character •            ')
+    print('            • Random Character •            ')
+    print('            •       Quit       •            ')
+    print('********************************************')
 
     mainSelection()
 
