@@ -37,19 +37,30 @@ class playerChar:
 
 myCharacter = playerChar()
 
+ ### Valid Race Choice Options ###
+validRaces = ['aarakocra', 'dragonborn', 'dwarf', 'elf', 'gnome',
+                  'goliath', 'halfling', 'human', 'tiefling']
+
+    ### Valid Class Choice Options ###
+validClasses = ['barbarian', 'bard', 'cleric', 'druid', 'fighter',
+                    'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
 
 ##### Main Menu Seclection Options #####
 def mainSelection():
     option = input("> ")
     if option.lower() == ("create"):
         launchCreator()
+    elif option.lower() == ("random"):
+        randomCharGen()
     elif option.lower() == ("quit"):
         sys.exit()
-    while option.lower() not in ['create', 'quit']:
+    while option.lower() not in ['create', 'random', 'quit']:
         print("Please enter a valid option")
         option = input("> ")
         if option.lower() == ("create"):
             launchCreator()
+        elif option.lower() == ("random"):
+            randomCharGen()
         elif option.lower() == ("quit"):
             sys.exit()
 
@@ -106,9 +117,7 @@ def classCollector():
         time.sleep(0.01)
     playerClass = input("> ")
 
-    ### Valid Class Choice Options ###
-    validClasses = ['barbarian', 'bard', 'cleric', 'druid', 'fighter',
-                    'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
+
     if playerClass.lower() in validClasses:
         myCharacter.charClass = playerClass.lower()
         print(f"{myCharacter.charName} is now a {playerClass}!\n")
@@ -234,9 +243,6 @@ def raceCollector():
         time.sleep(0.01)
     playerRace = input("> ")
 
-    ### Valid Race Choice Options ###
-    validRaces = ['aarakocra', 'dragonborn', 'dwarf', 'elf', 'gnome',
-                  'goliath', 'halfling', 'human', 'tiefling']
     if playerRace.lower() in validRaces:
         myCharacter.charRace = playerRace.lower()
         print(f"{myCharacter.charName} is now a {playerRace}!\n")
@@ -332,8 +338,21 @@ def printChar():
         f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
     print("###########################################")
 
+def randChar():
+    myCharacter.charRace = random.choice(validRaces)
+    myCharacter.charClass = random.choice(validClasses)
 
-##### Run creator #####
+def randomCharGen():
+##### Run Random Character Generator #####
+    os.system('clear')
+    nameCollector()
+    charNameCollector()
+    randChar()
+    modClac()
+    hpCalc()
+    acCalc()
+    printChar()
+
 def launchCreator():
     os.system('clear')
     nameCollector()
