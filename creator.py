@@ -318,7 +318,7 @@ def printChar():
     print(f"Race: {myCharacter.charRace.capitalize()}")
     print(f"Hit Points: {int(myCharacter.hp)}")
     print(
-        f"Armor Class: {myCharacter.ac}")
+        f"Armor Class: {int(myCharacter.ac)}")
     print(
         f"Strength: {myCharacter.str} with a modifier of {int(myCharacter.strMod)}")
     print(
