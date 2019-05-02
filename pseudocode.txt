@@ -10,7 +10,6 @@ Input:
         Randomly choose character race
         Randomly choose character class
 
-
 Process:
     Create a python class for player character:
         Add player name to the python class
