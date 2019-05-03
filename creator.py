@@ -37,13 +37,14 @@ class playerChar:
 
 myCharacter = playerChar()
 
- ### Valid Race Choice Options ###
+### Valid Race Choice Options ###
 validRaces = ['aarakocra', 'dragonborn', 'dwarf', 'elf', 'gnome',
-                  'goliath', 'halfling', 'human', 'tiefling']
+              'goliath', 'halfling', 'human', 'tiefling']
 
-    ### Valid Class Choice Options ###
+### Valid Class Choice Options ###
 validClasses = ['barbarian', 'bard', 'cleric', 'druid', 'fighter',
-                    'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
+                'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
+
 
 ##### Main Menu Seclection Options #####
 def mainSelection():
@@ -89,6 +90,7 @@ def nameCollector():
     playerName = input("> ")
     myCharacter.playerName = playerName.capitalize()
 
+
 ##### Collect Character Name #####
 def charNameCollector():
     qGreet = f"Alright {myCharacter.playerName}, what do you want your characters name to be? \n"
@@ -104,7 +106,7 @@ def charNameCollector():
 ##### Collect Players Class Choice #####
 def classCollector():
     qClass = f"Okay {myCharacter.playerName}, what class do you want your character {myCharacter.charName} to be?\n"
-    qClassDef = "(You can be a Barbarian, Bard, Cleric, Druid, Figther, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, or Wizard)\n"
+    qClassDef = "(You can be a Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, or Wizard)\n"
 
    # Write out question nicely
     for character in qClass:
@@ -117,18 +119,51 @@ def classCollector():
         time.sleep(0.01)
     playerClass = input("> ")
 
-
     if playerClass.lower() in validClasses:
         myCharacter.charClass = playerClass.lower()
+        setClassTemplate()
         print(f"{myCharacter.charName} is now a {playerClass}!\n")
     while playerClass.lower() not in validClasses:
         print("Please enter a valid class")
         playerClass = input("> ")
         if playerClass.lower() in validClasses:
             myCharacter.charClass = playerClass.lower()
+            setClassTemplate()
             print(f"{myCharacter.charName} is now a {playerClass}!\n")
 
-    ### Class Base Stats ###
+
+##### Collect Players Race Choice #####
+def raceCollector():
+    qRace = f"Alright, {myCharacter.playerName} your character {myCharacter.charName} is a {myCharacter.charClass}..\n What race do you want them be?\n"
+    qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
+
+    # Write out question nicely
+    for character in qRace:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    for character in qRaceDef:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.01)
+    playerRace = input("> ")
+
+    if playerRace.lower() in validRaces:
+        myCharacter.charRace = playerRace.lower()
+        setRacials()
+        print(f"{myCharacter.charName} is now a {playerRace}!\n")
+    while playerRace.lower() not in validRaces:
+        print("Please enter a valid race")
+        playerRace = input("> ")
+        if playerRace.lower() in validRaces:
+            myCharacter.charRace = playerRace.lower()
+            setRacials()
+            print(f"{myCharacter.charName} is now a {playerRace}!\n")
+
+
+##### Sets Class Stats Based On Chosen Class #####
+def setClassTemplate():
+        ### Class Base Stats ###
     if myCharacter.charClass == 'barbarian':
         myCharacter.hp = 12
         myCharacter.str = 15
@@ -227,33 +262,8 @@ def classCollector():
         myCharacter.cha = 12
 
 
-##### Collect Players Race Choice #####
-def raceCollector():
-    qRace = f"Alright, {myCharacter.playerName} your character {myCharacter.charName} is a {myCharacter.charClass}..\n What race do you want them be?\n"
-    qRaceDef = "(You can be a Aarakocra, Dragonborn, Dwarf, Elf, Gnome, Goliath, Halfling, Human, or Tiefling)\n"
-
-    # Write out question nicely
-    for character in qRace:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    for character in qRaceDef:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.01)
-    playerRace = input("> ")
-
-    if playerRace.lower() in validRaces:
-        myCharacter.charRace = playerRace.lower()
-        print(f"{myCharacter.charName} is now a {playerRace}!\n")
-    while playerRace.lower() not in validRaces:
-        print("Please enter a valid race")
-        playerRace = input("> ")
-        if playerRace.lower() in validRaces:
-            myCharacter.charRace = playerRace.lower()
-            print(f"{myCharacter.charName} is now a {playerRace}!\n")
-
-    ### Race Base Stats, adds stats to class stats ###
+##### Race Base Stats, adds stats to character stats #####
+def setRacials():
     if myCharacter.charRace == 'aarakocra':
         myCharacter.dex += 2
         myCharacter.wis += 1
@@ -284,7 +294,7 @@ def raceCollector():
 
 
 ##### Calculate Modifiers for each stat #####
-def modClac():
+def modCalc():
     ### Takes the stat and subtracts 10, then divides by 2 to get the modifier ###
     myCharacter.strMod = (myCharacter.str - 10) / 2
     myCharacter.dexMod = (myCharacter.dex - 10) / 2
@@ -296,8 +306,9 @@ def modClac():
 
 ##### Calculate Hit Points(HP) #####
 def hpCalc():
-    ### Takes the base HP and adds it to the consitution modifier ###
+    ### Takes the base HP and adds it to the constitution modifier ###
     myCharacter.hp = myCharacter.hp + myCharacter.conMod
+
 
 ##### Calculate Armor Class(AC) #####
 def acCalc():
@@ -338,28 +349,35 @@ def printChar():
         f"Charisma: {myCharacter.cha} with a modifier of {int(myCharacter.chaMod)}")
     print("###########################################")
 
+
+##### Selects a random race and class #####
 def randChar():
     myCharacter.charRace = random.choice(validRaces)
     myCharacter.charClass = random.choice(validClasses)
 
+
+##### Runs Random Character Generator #####
 def randomCharGen():
-##### Run Random Character Generator #####
     os.system('clear')
     nameCollector()
     charNameCollector()
     randChar()
-    modClac()
+    setClassTemplate()
+    setRacials()
+    modCalc()
     hpCalc()
     acCalc()
     printChar()
 
+
+##### Runs Character Creator #####
 def launchCreator():
     os.system('clear')
     nameCollector()
     charNameCollector()
     classCollector()
     raceCollector()
-    modClac()
+    modCalc()
     hpCalc()
     acCalc()
     printChar()
